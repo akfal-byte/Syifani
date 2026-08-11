@@ -1,1205 +1,1827 @@
 <!DOCTYPE html>
+
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Pernah Sedekat Itu</title>
+<title>Pernah Sedekat Itu</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 
-  <style>
+<style>
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    html {
-      scroll-behavior: smooth;
-    }
+html {
+    scroll-behavior: smooth;
+}
 
-    body {
-      background: #f7f3f0;
-      color: #554b48;
-      font-family: "Poppins", sans-serif;
-      overflow-x: hidden;
-    }
+body {
+    background: #f6f1ee;
+    color: #564c49;
+    font-family: "Poppins", sans-serif;
+    overflow-x: hidden;
+}
+
+::selection {
+    background: #c9aaa2;
+    color: white;
+}
 
 
-    /* ==================================================
-       OPENING
-    ================================================== */
+/* =========================================================
+   BACKGROUND
+========================================================= */
 
-    .opening {
-      min-height: 100vh;
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      text-align: center;
-
-      padding: 30px;
-
-      position: relative;
-
-      background:
+    background:
         radial-gradient(
-          circle at center,
-          rgba(255,255,255,.95),
-          transparent 65%
+            circle at 20% 20%,
+            rgba(255,255,255,.7),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 80% 70%,
+            rgba(218,190,181,.15),
+            transparent 35%
         );
+
+    z-index: -2;
+}
+
+
+/* =========================================================
+   FLOATING HEARTS
+========================================================= */
+
+.hearts {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 20;
+}
+
+.heart-float {
+    position: absolute;
+    bottom: -30px;
+
+    color: rgba(173,130,121,.25);
+    font-size: 13px;
+
+    animation: floatHeart linear infinite;
+    opacity: 0;
+}
+
+.heart-float:nth-child(1) {
+    left: 8%;
+    animation-duration: 12s;
+    animation-delay: 2s;
+}
+
+.heart-float:nth-child(2) {
+    left: 24%;
+    animation-duration: 15s;
+    animation-delay: 5s;
+}
+
+.heart-float:nth-child(3) {
+    left: 42%;
+    animation-duration: 11s;
+    animation-delay: 1s;
+}
+
+.heart-float:nth-child(4) {
+    left: 63%;
+    animation-duration: 14s;
+    animation-delay: 6s;
+}
+
+.heart-float:nth-child(5) {
+    left: 81%;
+    animation-duration: 13s;
+    animation-delay: 3s;
+}
+
+@keyframes floatHeart {
+
+    0% {
+        transform:
+            translateY(0)
+            rotate(0deg)
+            scale(.7);
+        opacity: 0;
     }
 
-    .opening-content {
-      max-width: 650px;
-      animation: openingIn 2s ease;
+    15% {
+        opacity: .6;
     }
 
-    .opening small {
-      display: block;
+    70% {
+        opacity: .4;
+    }
 
-      font-size: 10px;
-      letter-spacing: 5px;
-      text-transform: uppercase;
+    100% {
+        transform:
+            translateY(-110vh)
+            rotate(25deg)
+            scale(1.2);
+        opacity: 0;
+    }
+}
 
-      color: #a6948d;
 
-      margin-bottom: 28px;
+/* =========================================================
+   OPENING
+========================================================= */
+
+.opening {
+    min-height: 100vh;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 30px;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255,255,255,.95),
+            transparent 55%
+        );
+}
+
+.opening::after {
+    content: "";
+
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    border-radius: 50%;
+
+    background: rgba(190,157,148,.08);
+
+    filter: blur(60px);
+
+    animation: breathing 7s ease-in-out infinite;
+
+    pointer-events: none;
+}
+
+@keyframes breathing {
+
+    0%,100% {
+        transform: scale(.8);
+        opacity: .5;
+    }
+
+    50% {
+        transform: scale(1.15);
+        opacity: 1;
+    }
+}
+
+.opening-content {
+    position: relative;
+    z-index: 2;
+
+    max-width: 700px;
+
+    animation: openingIn 2.5s ease;
+}
+
+.opening small {
+    display: block;
+
+    font-size: 9px;
+
+    letter-spacing: 6px;
+
+    text-transform: uppercase;
+
+    color: #a48d86;
+
+    margin-bottom: 30px;
+}
+
+.opening h1 {
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: clamp(60px, 15vw, 105px);
+
+    line-height: .82;
+
+    font-weight: 500;
+
+    color: #625754;
+
+    text-shadow:
+        0 10px 30px rgba(85,65,60,.08);
+}
+
+.opening h1 span {
+    color: #a27f76;
+}
+
+.opening p {
+    max-width: 480px;
+
+    margin: 40px auto 0;
+
+    font-size: 13px;
+
+    line-height: 2.1;
+
+    color: #8d817d;
+
+    opacity: 0;
+
+    animation:
+        fadeUp 1.5s ease 1s forwards;
+}
+
+.scroll {
+    position: absolute;
+
+    bottom: 30px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    font-size: 9px;
+
+    letter-spacing: 4px;
+
+    color: #aaa09c;
+
+    animation:
+        scrollDown 2s infinite;
+}
+
+@keyframes openingIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(35px) scale(.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes fadeUp {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scrollDown {
+
+    0%,100% {
+        transform: translate(-50%, 0);
+        opacity: .5;
+    }
+
+    50% {
+        transform: translate(-50%, -8px);
+        opacity: 1;
+    }
+}
+
+
+/* =========================================================
+   CHAPTER
+========================================================= */
+
+.chapter {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 120px 20px;
+}
+
+.content {
+    width: 100%;
+    max-width: 900px;
+
+    margin: auto;
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.chapter-title {
+    text-align: center;
+
+    margin-bottom: 55px;
+}
+
+.chapter-title small {
+    display: block;
+
+    font-size: 9px;
+
+    letter-spacing: 5px;
+
+    text-transform: uppercase;
+
+    color: #ac9189;
+
+    margin-bottom: 18px;
+}
+
+.chapter-title h2 {
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: clamp(43px, 10vw, 70px);
+
+    line-height: .95;
+
+    font-weight: 500;
+
+    color: #675c58;
+}
+
+
+/* =========================================================
+   TEXT
+========================================================= */
+
+.chapter-text {
+    max-width: 580px;
+
+    margin: 0 auto 60px;
+
+    text-align: center;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: clamp(25px, 5vw, 36px);
+
+    line-height: 1.4;
+
+    color: #766964;
+}
+
+.date {
+    font-family: "Poppins", sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 4px;
+
+    color: #aa8d85;
+
+    margin-bottom: 22px;
+}
+
+
+/* =========================================================
+   REVEAL
+========================================================= */
+
+.reveal {
+    opacity: 0;
+
+    transform:
+        translateY(45px)
+        scale(.98);
+
+    filter: blur(5px);
+
+    transition:
+        opacity 1.2s ease,
+        transform 1.2s cubic-bezier(.2,.7,.2,1),
+        filter 1.2s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+
+    transform:
+        translateY(0)
+        scale(1);
+
+    filter: blur(0);
+}
+
+
+/* =========================================================
+   FIRST PHOTO
+========================================================= */
+
+.first-photo {
+    max-width: 650px;
+
+    margin: auto;
+
+    position: relative;
+
+    padding: 10px;
+
+    background:
+        rgba(255,255,255,.8);
+
+    box-shadow:
+        0 25px 70px rgba(70,50,45,.13);
+
+    transform:
+        rotate(-1deg);
+
+    transition:
+        transform 1s ease;
+}
+
+.first-photo:hover {
+    transform:
+        rotate(0deg)
+        scale(1.015);
+}
+
+.first-photo::before {
+    content: "";
+
+    position: absolute;
+
+    inset: -15px;
+
+    border: 1px solid rgba(164,130,120,.18);
+
+    pointer-events: none;
+}
+
+.first-photo img {
+    display: block;
+
+    width: 100%;
+
+    aspect-ratio: 4 / 5;
+
+    object-fit: cover;
+
+    filter: saturate(.9);
+
+    transition:
+        transform 1.5s ease,
+        filter 1.5s ease;
+}
+
+.first-photo:hover img {
+    transform: scale(1.025);
+
+    filter: saturate(1);
+}
+
+
+/* =========================================================
+   SEPARATOR
+========================================================= */
+
+.separator {
+    min-height: 65vh;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 50px 25px;
+}
+
+.separator p {
+    max-width: 720px;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: clamp(35px, 7vw, 58px);
+
+    line-height: 1.2;
+
+    color: #756864;
+}
+
+.separator .line {
+    width: 1px;
+
+    height: 80px;
+
+    background:
+        linear-gradient(
+            transparent,
+            #b89a91,
+            transparent
+        );
+
+    margin: 35px auto;
+}
+
+
+/* =========================================================
+   TWO PHOTOS
+========================================================= */
+
+.two-photos {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 18px;
+
+    max-width: 820px;
+
+    margin: auto;
+}
+
+.two-photo {
+    position: relative;
+
+    padding: 8px;
+
+    background:
+        rgba(255,255,255,.8);
+
+    box-shadow:
+        0 20px 50px rgba(70,50,45,.12);
+
+    overflow: hidden;
+
+    transition:
+        transform 1s ease;
+}
+
+.two-photo:nth-child(1) {
+    transform:
+        rotate(-2deg)
+        translateY(15px);
+}
+
+.two-photo:nth-child(2) {
+    transform:
+        rotate(2deg)
+        translateY(-15px);
+}
+
+.two-photo:hover {
+    transform:
+        rotate(0)
+        translateY(0)
+        scale(1.025);
+}
+
+.two-photo img {
+    display: block;
+
+    width: 100%;
+
+    aspect-ratio: 4 / 5;
+
+    object-fit: cover;
+
+    filter: saturate(.88);
+
+    transition:
+        transform 1.5s ease,
+        filter 1.5s ease;
+}
+
+.two-photo:hover img {
+    transform: scale(1.04);
+
+    filter: saturate(1);
+}
+
+
+/* =========================================================
+   SECOND MEMORY TEXT
+========================================================= */
+
+.second-text {
+    max-width: 620px;
+
+    margin: 75px auto 0;
+
+    text-align: center;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: clamp(27px, 5vw, 38px);
+
+    line-height: 1.45;
+
+    color: #766964;
+}
+
+.second-text strong {
+    display: block;
+
+    margin-top: 25px;
+
+    font-weight: 500;
+
+    color: #9a786f;
+}
+
+
+/* =========================================================
+   MEMORY GALLERY
+========================================================= */
+
+.memory-gallery {
+    display: grid;
+
+    grid-template-columns:
+        repeat(12, 1fr);
+
+    gap: 20px;
+
+    max-width: 900px;
+
+    margin: auto;
+}
+
+.memory {
+    position: relative;
+
+    overflow: hidden;
+
+    padding: 7px;
+
+    background:
+        rgba(255,255,255,.82);
+
+    box-shadow:
+        0 20px 45px rgba(70,50,45,.10);
+
+    opacity: 0;
+
+    transform:
+        translateY(45px)
+        rotate(var(--rotation))
+        scale(.92);
+
+    transition:
+        opacity 1.2s ease,
+        transform 1.2s cubic-bezier(.2,.7,.2,1);
+}
+
+.memory.active {
+    opacity: 1;
+
+    transform:
+        translateY(0)
+        rotate(var(--rotation))
+        scale(1);
+}
+
+.memory:hover {
+    z-index: 5;
+
+    transform:
+        translateY(-8px)
+        rotate(0deg)
+        scale(1.025);
+}
+
+.memory img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    filter:
+        saturate(.85)
+        contrast(.97);
+
+    transition:
+        transform 1.5s ease,
+        filter 1s ease;
+}
+
+.memory:hover img {
+    transform: scale(1.05);
+
+    filter:
+        saturate(1)
+        contrast(1);
+}
+
+
+/* =========================================================
+   RANDOM POSITIONS - 12 PHOTOS
+========================================================= */
+
+.memory:nth-child(1) {
+    grid-column: span 7;
+    aspect-ratio: 16 / 10;
+    --rotation: -1.5deg;
+}
+
+.memory:nth-child(2) {
+    grid-column: span 5;
+    aspect-ratio: 4 / 5;
+    --rotation: 2deg;
+}
+
+.memory:nth-child(3) {
+    grid-column: span 5;
+    aspect-ratio: 4 / 5;
+    --rotation: -2deg;
+}
+
+.memory:nth-child(4) {
+    grid-column: span 7;
+    aspect-ratio: 16 / 10;
+    --rotation: 1deg;
+}
+
+.memory:nth-child(5) {
+    grid-column: span 4;
+    aspect-ratio: 1 / 1;
+    --rotation: 2.5deg;
+}
+
+.memory:nth-child(6) {
+    grid-column: span 4;
+    aspect-ratio: 1 / 1;
+    --rotation: -1deg;
+}
+
+.memory:nth-child(7) {
+    grid-column: span 4;
+    aspect-ratio: 1 / 1;
+    --rotation: 1.5deg;
+}
+
+.memory:nth-child(8) {
+    grid-column: span 7;
+    aspect-ratio: 4 / 5;
+    --rotation: -1.5deg;
+}
+
+.memory:nth-child(9) {
+    grid-column: span 5;
+    aspect-ratio: 16 / 10;
+    --rotation: 2deg;
+}
+
+.memory:nth-child(10) {
+    grid-column: span 5;
+    aspect-ratio: 4 / 5;
+    --rotation: -2deg;
+}
+
+.memory:nth-child(11) {
+    grid-column: span 7;
+    aspect-ratio: 16 / 10;
+    --rotation: 1deg;
+}
+
+.memory:nth-child(12) {
+    grid-column: span 5;
+    aspect-ratio: 4 / 5;
+    --rotation: -1.5deg;
+}
+
+
+/* =========================================================
+   MEMORY TEXT
+========================================================= */
+
+.memory-text {
+    max-width: 600px;
+
+    margin: 80px auto 0;
+
+    text-align: center;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: clamp(27px, 5vw, 37px);
+
+    line-height: 1.4;
+
+    color: #766964;
+}
+
+
+/* =========================================================
+   FINAL
+========================================================= */
+
+.final {
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 70px 25px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #f6f1ee,
+            #eee3de
+        );
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.final::before {
+    content: "♡";
+
+    position: absolute;
+
+    font-size: 280px;
+
+    color: rgba(166,127,118,.035);
+
+    animation:
+        finalHeart 8s ease-in-out infinite;
+}
+
+@keyframes finalHeart {
+
+    0%,100% {
+        transform:
+            scale(.8)
+            rotate(-5deg);
+    }
+
+    50% {
+        transform:
+            scale(1.05)
+            rotate(5deg);
+    }
+}
+
+.final-content {
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 680px;
+}
+
+.final small {
+    display: block;
+
+    font-size: 9px;
+
+    letter-spacing: 5px;
+
+    text-transform: uppercase;
+
+    color: #aa9189;
+
+    margin-bottom: 30px;
+}
+
+.final h2 {
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: clamp(50px, 11vw, 85px);
+
+    line-height: .9;
+
+    font-weight: 500;
+
+    color: #655a56;
+}
+
+.final p {
+    margin-top: 38px;
+
+    font-size: 13px;
+
+    line-height: 2.1;
+
+    color: #817571;
+}
+
+.hope {
+    margin-top: 55px;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: clamp(28px, 5vw, 38px);
+
+    line-height: 1.4;
+
+    color: #92766f;
+}
+
+.final-heart {
+    margin-top: 45px;
+
+    font-size: 27px;
+
+    color: #b58e85;
+
+    animation:
+        heartbeat 2.5s infinite;
+}
+
+@keyframes heartbeat {
+
+    0%,100% {
+        transform: scale(1);
+    }
+
+    15% {
+        transform: scale(1.18);
+    }
+
+    30% {
+        transform: scale(1);
+    }
+
+    45% {
+        transform: scale(1.1);
+    }
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+    padding: 35px 20px 50px;
+
+    text-align: center;
+
+    background: #eee3de;
+
+    color: #a99d98;
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+}
+
+
+/* =========================================================
+   FULLSCREEN PHOTO
+========================================================= */
+
+.photo-viewer {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 100;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background:
+        rgba(35,27,25,.92);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition:
+        opacity .4s ease,
+        visibility .4s ease;
+}
+
+.photo-viewer.active {
+    opacity: 1;
+
+    visibility: visible;
+}
+
+.photo-viewer img {
+    max-width: 95vw;
+    max-height: 90vh;
+
+    object-fit: contain;
+
+    border-radius: 3px;
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.4);
+
+    transform: scale(.9);
+
+    transition:
+        transform .5s ease;
+}
+
+.photo-viewer.active img {
+    transform: scale(1);
+}
+
+.close-viewer {
+    position: absolute;
+
+    top: 25px;
+    right: 25px;
+
+    width: 40px;
+    height: 40px;
+
+    border: 1px solid rgba(255,255,255,.3);
+
+    border-radius: 50%;
+
+    background: transparent;
+
+    color: white;
+
+    font-size: 22px;
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .chapter {
+        padding-top: 90px;
+        padding-bottom: 90px;
     }
 
     .opening h1 {
-      font-family: "Cormorant Garamond", serif;
-
-      font-size: clamp(58px, 14vw, 100px);
-
-      line-height: .88;
-
-      font-weight: 500;
-
-      color: #625855;
+        font-size: 65px;
     }
-
-    .opening h1 span {
-      color: #a8867e;
-    }
-
-    .opening p {
-      max-width: 470px;
-
-      margin: 35px auto 0;
-
-      font-size: 13px;
-
-      line-height: 2;
-
-      color: #8b807c;
-    }
-
-    .scroll {
-      position: absolute;
-
-      bottom: 30px;
-      left: 50%;
-
-      transform: translateX(-50%);
-
-      font-size: 10px;
-
-      letter-spacing: 3px;
-
-      color: #aaa09c;
-
-      animation: bounce 2s infinite;
-    }
-
-
-    /* ==================================================
-       GENERAL
-    ================================================== */
-
-    .chapter {
-      min-height: 100vh;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      padding: 110px 20px;
-    }
-
-    .content {
-      width: 100%;
-      max-width: 900px;
-      margin: auto;
-    }
-
-
-    /* ==================================================
-       TITLE
-    ================================================== */
-
-    .chapter-title {
-      text-align: center;
-      margin-bottom: 55px;
-    }
-
-    .chapter-title small {
-      display: block;
-
-      font-size: 10px;
-
-      letter-spacing: 4px;
-
-      text-transform: uppercase;
-
-      color: #ad9189;
-
-      margin-bottom: 15px;
-    }
-
-    .chapter-title h2 {
-      font-family: "Cormorant Garamond", serif;
-
-      font-size: clamp(43px, 9vw, 68px);
-
-      line-height: 1;
-
-      font-weight: 500;
-
-      color: #675d59;
-    }
-
-
-    /* ==================================================
-       TEXT
-    ================================================== */
-
-    .chapter-text {
-      max-width: 570px;
-
-      margin: 0 auto 55px;
-
-      text-align: center;
-
-      font-family: "Cormorant Garamond", serif;
-
-      font-size: clamp(25px, 5vw, 35px);
-
-      line-height: 1.4;
-
-      color: #766964;
-    }
-
-    .date {
-      font-family: "Poppins", sans-serif;
-
-      font-size: 11px;
-
-      letter-spacing: 3px;
-
-      color: #aa9189;
-
-      margin-bottom: 22px;
-    }
-
-
-    /* ==================================================
-       FOTO SINGLE
-    ================================================== */
-
-    .single-photo {
-      max-width: 650px;
-
-      margin: auto;
-
-      box-shadow:
-        0 20px 50px rgba(70, 55, 50, .13);
-
-      overflow: hidden;
-
-      background: #e9e1dc;
-    }
-
-    .single-photo img {
-      width: 100%;
-
-      display: block;
-
-      aspect-ratio: 4 / 5;
-
-      object-fit: cover;
-
-      transition: transform 1s ease;
-    }
-
-    .single-photo:hover img {
-      transform: scale(1.03);
-    }
-
-
-    /* ==================================================
-       TWO PHOTO
-    ================================================== */
 
     .two-photos {
-      display: grid;
-
-      grid-template-columns: repeat(2, 1fr);
-
-      gap: 15px;
-
-      max-width: 800px;
-
-      margin: auto;
+        gap: 10px;
     }
 
-    .two-photos .photo {
-      overflow: hidden;
-
-      box-shadow:
-        0 18px 40px rgba(70, 55, 50, .11);
+    .two-photo {
+        padding: 5px;
     }
-
-    .two-photos img {
-      width: 100%;
-
-      display: block;
-
-      aspect-ratio: 4 / 5;
-
-      object-fit: cover;
-
-      transition: transform .8s ease;
-    }
-
-    .two-photos .photo:hover img {
-      transform: scale(1.04);
-    }
-
-
-    /* ==================================================
-       SEPARATOR
-    ================================================== */
-
-    .separator {
-      min-height: 65vh;
-
-      display: flex;
-
-      align-items: center;
-
-      justify-content: center;
-
-      text-align: center;
-
-      padding: 50px 25px;
-    }
-
-    .separator p {
-      max-width: 720px;
-
-      font-family: "Cormorant Garamond", serif;
-
-      font-size: clamp(34px, 7vw, 56px);
-
-      line-height: 1.25;
-
-      color: #766965;
-    }
-
-
-    /* ==================================================
-       RANDOM MEMORY GALLERY
-    ================================================== */
 
     .memory-gallery {
-      display: grid;
-
-      grid-template-columns: repeat(12, 1fr);
-
-      gap: 18px;
-
-      max-width: 900px;
-
-      margin: auto;
+        gap: 10px;
     }
 
-    .memory {
-      overflow: hidden;
-
-      background: #e9e1dc;
-
-      box-shadow:
-        0 15px 35px rgba(70, 55, 50, .10);
-
-      opacity: 0;
-
-      transform: translateY(30px) scale(.97);
-
-      transition:
-        opacity 1s ease,
-        transform 1s ease;
-    }
-
-    .memory.active {
-      opacity: 1;
-
-      transform: translateY(0) scale(1);
-    }
-
-    .memory img {
-      width: 100%;
-
-      height: 100%;
-
-      display: block;
-
-      object-fit: cover;
-
-      transition:
-        transform 1s ease,
-        filter 1s ease;
-    }
-
-    .memory:hover img {
-      transform: scale(1.05);
-    }
-
-
-    /* Ukuran foto random */
-
-    .memory:nth-child(1) {
-      grid-column: span 7;
-      aspect-ratio: 16 / 10;
-    }
-
-    .memory:nth-child(2) {
-      grid-column: span 5;
-      aspect-ratio: 4 / 5;
-    }
-
-    .memory:nth-child(3) {
-      grid-column: span 5;
-      aspect-ratio: 4 / 5;
-    }
-
-    .memory:nth-child(4) {
-      grid-column: span 7;
-      aspect-ratio: 16 / 10;
-    }
-
-    .memory:nth-child(5) {
-      grid-column: span 4;
-      aspect-ratio: 1 / 1;
-    }
-
-    .memory:nth-child(6) {
-      grid-column: span 4;
-      aspect-ratio: 1 / 1;
-    }
-
-    .memory:nth-child(7) {
-      grid-column: span 4;
-      aspect-ratio: 1 / 1;
-    }
-
-    .memory:nth-child(8) {
-      grid-column: span 7;
-      aspect-ratio: 4 / 5;
-    }
-
-    .memory:nth-child(9) {
-      grid-column: span 5;
-      aspect-ratio: 16 / 10;
-    }
-
-    .memory:nth-child(10) {
-      grid-column: span 5;
-      aspect-ratio: 4 / 5;
-    }
-
-    .memory:nth-child(11) {
-      grid-column: span 7;
-      aspect-ratio: 16 / 10;
-    }
-
-
-    /* ==================================================
-       MEMORY TEXT
-    ================================================== */
-
-    .memory-text {
-      max-width: 600px;
-
-      margin: 70px auto 0;
-
-      text-align: center;
-
-      font-family: "Cormorant Garamond", serif;
-
-      font-size: clamp(27px, 5vw, 37px);
-
-      line-height: 1.4;
-
-      color: #766964;
-    }
-
-
-    /* ==================================================
-       FINAL
-    ================================================== */
-
-    .final {
-      min-height: 100vh;
-
-      display: flex;
-
-      align-items: center;
-
-      justify-content: center;
-
-      text-align: center;
-
-      padding: 60px 25px;
-
-      background:
-        linear-gradient(
-          to bottom,
-          #f7f3f0,
-          #eee5e0
-        );
-    }
-
-    .final-content {
-      max-width: 650px;
-    }
-
-    .final small {
-      display: block;
-
-      font-size: 10px;
-
-      letter-spacing: 4px;
-
-      text-transform: uppercase;
-
-      color: #aa9189;
-
-      margin-bottom: 30px;
-    }
-
-    .final h2 {
-      font-family: "Cormorant Garamond", serif;
-
-      font-size: clamp(48px, 11vw, 82px);
-
-      line-height: .95;
-
-      font-weight: 500;
-
-      color: #665b57;
-    }
-
-    .final p {
-      margin-top: 35px;
-
-      font-size: 13px;
-
-      line-height: 2.1;
-
-      color: #817672;
-    }
-
-    .hope {
-      margin-top: 50px;
-
-      font-family: "Cormorant Garamond", serif;
-
-      font-size: clamp(27px, 5vw, 36px);
-
-      line-height: 1.4;
-
-      color: #92766f;
-    }
-
-    .heart {
-      margin-top: 45px;
-
-      font-size: 26px;
-
-      color: #b9938b;
-
-      animation: heartbeat 2.2s infinite;
-    }
-
-
-    /* ==================================================
-       FOOTER
-    ================================================== */
-
-    footer {
-      padding: 35px 20px 50px;
-
-      text-align: center;
-
-      background: #eee5e0;
-
-      color: #aaa09c;
-
-      font-size: 10px;
-
-      letter-spacing: 2px;
-    }
-
-
-    /* ==================================================
-       REVEAL
-    ================================================== */
-
-    .reveal {
-      opacity: 0;
-
-      transform: translateY(35px);
-
-      transition:
-        opacity 1.2s ease,
-        transform 1.2s ease;
-    }
-
-    .reveal.active {
-      opacity: 1;
-
-      transform: translateY(0);
-    }
-
-
-    /* ==================================================
-       ANIMATIONS
-    ================================================== */
-
-    @keyframes openingIn {
-
-      from {
-        opacity: 0;
-        transform: translateY(25px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-    }
-
-    @keyframes bounce {
-
-      0%, 100% {
-        transform: translate(-50%, 0);
-      }
-
-      50% {
-        transform: translate(-50%, -7px);
-      }
-
-    }
-
-    @keyframes heartbeat {
-
-      0%, 100% {
-        transform: scale(1);
-      }
-
-      15% {
-        transform: scale(1.15);
-      }
-
-      30% {
-        transform: scale(1);
-      }
-
-      45% {
-        transform: scale(1.1);
-      }
-
-    }
-
-
-    /* ==================================================
-       MOBILE
-    ================================================== */
-
-    @media (max-width: 600px) {
-
-      .chapter {
-        padding-top: 85px;
-        padding-bottom: 85px;
-      }
-
-      .two-photos {
-        gap: 9px;
-      }
-
-      .memory-gallery {
-        gap: 9px;
-      }
-
-      .memory:nth-child(n) {
+    .memory:nth-child(n) {
         grid-column: span 6;
-
         aspect-ratio: 1 / 1;
-      }
-
-      .memory:nth-child(1),
-      .memory:nth-child(4),
-      .memory:nth-child(8),
-      .memory:nth-child(11) {
-        grid-column: span 12;
-      }
-
-      .chapter-title {
-        margin-bottom: 40px;
-      }
-
-      .chapter-text {
-        margin-bottom: 40px;
-      }
-
-      .separator {
-        min-height: 55vh;
-      }
-
     }
 
-  </style>
-</head>
+    .memory:nth-child(1),
+    .memory:nth-child(4),
+    .memory:nth-child(8),
+    .memory:nth-child(11) {
+        grid-column: span 12;
+    }
 
+    .memory:nth-child(1),
+    .memory:nth-child(4),
+    .memory:nth-child(11) {
+        aspect-ratio: 4 / 3;
+    }
+
+    .chapter-title {
+        margin-bottom: 40px;
+    }
+
+    .chapter-text {
+        margin-bottom: 40px;
+    }
+
+    .separator {
+        min-height: 55vh;
+    }
+
+}
+
+
+/* =========================================================
+   REDUCE MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: .01ms !important;
+
+        animation-iteration-count: 1 !important;
+
+        scroll-behavior: auto !important;
+
+        transition-duration: .01ms !important;
+    }
+
+}
+
+</style>
+
+</head>
 
 <body>
 
+<!-- =======================================================
+     FLOATING HEARTS
+======================================================== -->
 
-  <!-- ==================================================
-       OPENING
-  ================================================== -->
+<div class="hearts">
 
-  <section class="opening">
+```
+<div class="heart-float">♡</div>
+<div class="heart-float">♡</div>
+<div class="heart-float">♡</div>
+<div class="heart-float">♡</div>
+<div class="heart-float">♡</div>
+```
 
-    <div class="opening-content">
+</div>
 
-      <small>
+<!-- =======================================================
+     OPENING
+======================================================== -->
+
+<section class="opening">
+
+```
+<div class="opening-content">
+
+    <small>
         untuk sebuah kenangan
-      </small>
+    </small>
 
-      <h1>
+    <h1>
         Pernah<br>
         <span>Sedekat Itu.</span>
-      </h1>
+    </h1>
 
-      <p>
+    <p>
         Mungkin sekarang kita udah bener-bener asing.
         Tapi sebelum semuanya berubah,
         ada banyak hal yang pernah kita jalani.
-      </p>
+    </p>
 
-    </div>
+</div>
 
-    <div class="scroll">
-      scroll perlahan ↓
-    </div>
+<div class="scroll">
+    scroll perlahan ↓
+</div>
+```
 
-  </section>
+</section>
 
+<!-- =======================================================
+     GRUP 01
+======================================================== -->
 
+<section class="chapter">
 
-  <!-- ==================================================
-       GRUP 01
-       AWAL HUBUNGAN
-  ================================================== -->
+```
+<div class="content reveal">
 
-  <section class="chapter">
-
-    <div class="content reveal">
-
-      <div class="chapter-title">
+    <div class="chapter-title">
 
         <small>
-          01 — awal
+            01 — awal
         </small>
 
         <h2>
-          Dimulai dari sini.
+            Dimulai dari sini.
         </h2>
 
-      </div>
+    </div>
 
 
-      <div class="chapter-text">
+    <div class="chapter-text">
 
         Saat hubungan mulai makin dekat,
         dan untuk pertama kalinya kita ingin
         menyimpan sesuatu untuk dikenang.
 
-      </div>
+    </div>
 
 
-      <div class="single-photo">
+    <div class="first-photo">
 
         <img
-          src="Pertama.png"
-          alt="Kenangan pertama"
+            src="Pertama.png"
+            alt="Kenangan pertama"
+            class="clickable-photo"
         >
 
-      </div>
-
     </div>
 
-  </section>
+</div>
+```
 
+</section>
 
+<!-- =======================================================
+     SEPARATOR
+======================================================== -->
 
-  <!-- ==================================================
-       SEPARATOR
-  ================================================== -->
+<section class="separator">
 
-  <section class="separator">
+```
+<div class="reveal">
 
-    <div class="reveal">
+    <div class="line"></div>
 
-      <p>
+    <p>
         Kita juga pernah sampai di titik
         dimana semuanya hampir selesai.
-      </p>
+    </p>
 
-    </div>
+    <div class="line"></div>
 
-  </section>
+</div>
+```
 
+</section>
 
+<!-- =======================================================
+     GRUP 02
+======================================================== -->
 
-  <!-- ==================================================
-       GRUP 02
-       14 NOVEMBER 2025
-  ================================================== -->
+<section class="chapter">
 
-  <section class="chapter">
+```
+<div class="content reveal">
 
-    <div class="content reveal">
-
-      <div class="chapter-title">
+    <div class="chapter-title">
 
         <small>
-          02 — 14 November 2025
+            02 — 14 November 2025
         </small>
 
         <h2>
-          Pelukan terakhir.
+            Pelukan terakhir.
         </h2>
 
-      </div>
+    </div>
 
 
-      <div class="chapter-text">
+    <div class="chapter-text">
 
         <div class="date">
-          14 · 11 · 2025
+            14 · 11 · 2025
         </div>
 
         Kita pernah sepakat untuk mengakhiri
         hubungan ini dan jadiin hari itu
         sebagai pelukan terakhir.
 
-      </div>
+    </div>
 
 
-      <div class="two-photos">
+    <div class="two-photos">
 
-        <div class="photo">
+        <div class="two-photo">
 
-          <img
-            src="Kedua.jpg"
-            alt="Kenangan 14 November 2025"
-          >
-
-        </div>
-
-
-        <div class="photo">
-
-          <img
-            src="Kedua1.jpg"
-            alt="Kenangan 14 November 2025"
-          >
+            <img
+                src="Kedua.jpg"
+                alt="Kenangan 14 November 2025"
+                class="clickable-photo"
+            >
 
         </div>
 
-      </div>
+
+        <div class="two-photo">
+
+            <img
+                src="Kedua1.jpg"
+                alt="Kenangan 14 November 2025"
+                class="clickable-photo"
+            >
+
+        </div>
+
+    </div>
 
 
-      <div class="memory-text">
+    <div class="second-text">
 
         Tapi,
         sayang malah ngasi pelukan yang erat banget.
 
-        <br><br>
-
-        Dan dari situ,
-        kita masih bisa bertahan
-        dan lanjutin hubungan ini lagi.
-
-      </div>
+        <strong>
+            Dan dari situ,
+            kita masih bisa bertahan
+            dan lanjutin hubungan ini lagi.
+        </strong>
 
     </div>
 
-  </section>
+</div>
+```
 
+</section>
 
+<!-- =======================================================
+     SEPARATOR
+======================================================== -->
 
-  <!-- ==================================================
-       SEPARATOR
-  ================================================== -->
+<section class="separator">
 
-  <section class="separator">
+```
+<div class="reveal">
 
-    <div class="reveal">
+    <div class="line"></div>
 
-      <p>
+    <p>
         Setelah itu,
         ternyata masih banyak hal yang kita punya.
-      </p>
+    </p>
 
-    </div>
+    <div class="line"></div>
 
-  </section>
+</div>
+```
 
+</section>
 
+<!-- =======================================================
+     GRUP 03
+======================================================== -->
 
-  <!-- ==================================================
-       GRUP 03
-       RANDOM MEMORIES
-  ================================================== -->
+<section class="chapter">
 
-  <section class="chapter">
+```
+<div class="content">
 
-    <div class="content">
-
-      <div class="chapter-title reveal">
+    <div class="chapter-title reveal">
 
         <small>
-          03 — kita
+            03 — kita
         </small>
 
         <h2>
-          Hal-hal kecil yang pernah kita punya.
+            Hal-hal kecil yang pernah kita punya.
         </h2>
-
-      </div>
-
-
-      <div class="memory-gallery">
-
-
-        <div class="memory">
-
-          <img
-            src="Ketiga.jpg"
-            alt="Kenangan"
-          >
-
-        </div>
-
-
-        <div class="memory">
-
-          <img
-            src="Ketiga1.jpg"
-            alt="Kenangan"
-          >
-
-        </div>
-
-
-        <div class="memory">
-
-          <img
-            src="Ketiga2.jpg"
-            alt="Kenangan"
-          >
-
-        </div>
-
-
-        <div class="memory">
-
-          <img
-            src="Ketiga3.jpg"
-            alt="Kenangan"
-          >
-
-        </div>
-
-
-        <div class="memory">
-
-          <img
-            src="Ketiga4.jpg"
-            alt="Kenangan"
-          >
-
-        </div>
-
-
-        <div class="memory">
-
-          <img
-            src="Ketiga5.jpg"
-            alt="Kenangan"
-          >
-
-        </div>
-
-
-        <div class="memory">
-
-          <img
-            src="Ketiga6.jpg"
-            alt="Kenangan"
-          >
-
-        </div>
-
-
-        <div class="memory">
-
-          <img
-            src="Ketiga7.jpg"
-            alt="Kenangan"
-          >
-
-        </div>
-
-
-        <div class="memory">
-
-          <img
-            src="Ketiga8.jpg"
-            alt="Kenangan"
-          >
-
-        </div>
-
-
-        <div class="memory">
-
-          <img
-            src="Ketiga9.jpg"
-            alt="Kenangan"
-          >
-
-        </div>
-
-
-        <div class="memory">
-
-          <img
-            src="Ketiga10.jpg"
-            alt="Kenangan"
-          >
-
-        </div>
-
-        <div class="memory">
-
-          <img
-            src="Ketiga11.jpg"
-            alt="Kenangan"
-          >
-
-        </div>
-
-      </div>
-
-
-      <div class="memory-text reveal">
-
-        Mugkin bagi sayang ini ga terlalu istimewa.
-
-        <br>
-
-        Tapi semuanya pernah kita jalani bareng-bareng, dan itu nyataaa.
-
-      </div>
 
     </div>
 
-  </section>
+
+    <div class="memory-gallery">
 
 
+        <div class="memory">
+            <img
+                src="Ketiga.jpg"
+                alt="Kenangan"
+                class="clickable-photo"
+            >
+        </div>
 
-  <!-- ==================================================
-       FINAL
-  ================================================== -->
 
-  <section class="final">
+        <div class="memory">
+            <img
+                src="Ketiga1.jpg"
+                alt="Kenangan"
+                class="clickable-photo"
+            >
+        </div>
 
-    <div class="final-content reveal">
 
-      <small>
+        <div class="memory">
+            <img
+                src="Ketiga2.jpg"
+                alt="Kenangan"
+                class="clickable-photo"
+            >
+        </div>
+
+
+        <div class="memory">
+            <img
+                src="Ketiga3.jpg"
+                alt="Kenangan"
+                class="clickable-photo"
+            >
+        </div>
+
+
+        <div class="memory">
+            <img
+                src="Ketiga4.jpg"
+                alt="Kenangan"
+                class="clickable-photo"
+            >
+        </div>
+
+
+        <div class="memory">
+            <img
+                src="Ketiga5.jpg"
+                alt="Kenangan"
+                class="clickable-photo"
+            >
+        </div>
+
+
+        <div class="memory">
+            <img
+                src="Ketiga6.jpg"
+                alt="Kenangan"
+                class="clickable-photo"
+            >
+        </div>
+
+
+        <div class="memory">
+            <img
+                src="Ketiga7.jpg"
+                alt="Kenangan"
+                class="clickable-photo"
+            >
+        </div>
+
+
+        <div class="memory">
+            <img
+                src="Ketiga8.jpg"
+                alt="Kenangan"
+                class="clickable-photo"
+            >
+        </div>
+
+
+        <div class="memory">
+            <img
+                src="Ketiga9.jpg"
+                alt="Kenangan"
+                class="clickable-photo"
+            >
+        </div>
+
+
+        <div class="memory">
+            <img
+                src="Ketiga10.jpg"
+                alt="Kenangan"
+                class="clickable-photo"
+            >
+        </div>
+
+
+        <div class="memory">
+            <img
+                src="Ketiga11.jpg"
+                alt="Kenangan"
+                class="clickable-photo"
+            >
+        </div>
+
+
+    </div>
+
+
+    <div class="memory-text reveal">
+
+        Mugkin bagi sayang ini ga terlalu istimewa.
+
+        <br><br>
+
+        Tapi semuanya pernah kita jalani bareng-bareng,
+        dan itu nyataaa.
+
+    </div>
+
+</div>
+```
+
+</section>
+
+<!-- =======================================================
+     FINAL
+======================================================== -->
+
+<section class="final">
+
+```
+<div class="final-content reveal">
+
+    <small>
         pada akhirnya
-      </small>
+    </small>
 
 
-      <h2>
-        Aku cuma mau jadiin pengingat kalo kita pernah<br>
+    <h2>
+        Aku cuma mau jadiin pengingat
+        kalo kita pernah<br>
         sedekat itu.
-      </h2>
+    </h2>
 
 
-      <p>
+    <p>
         Aku juga ga tau halaman ini
         akan berarti apa untuk kita nanti.
-      </p>
+    </p>
 
 
-      <p>
+    <p>
         Aku cuma mau menyimpannya.
         Karena bagaimanapun akhirnya,
         aku bersyukur pernah punya
         semua ini bersama sayang.
-      </p>
+    </p>
 
 
-      <div class="hope">
+    <div class="hope">
 
         Dan kalo suatu hari nanti
         kita kembali bertemu sebagai dua orang
         yang sama-sama ingin mencoba lagi,
         mungkin kita bisa membuat
         cerita yang baru.
-        Dan sayang tau apa yang harus dilakuin
 
-      </div>
+        <br><br>
 
-
-      <div class="heart">
-        ♡
-      </div>
+        Dan sayang tau apa yang harus dilakuin.
 
     </div>
 
-  </section>
+
+    <div class="final-heart">
+        ♡
+    </div>
+
+</div>
+```
+
+</section>
+
+<!-- =======================================================
+     FOOTER
+======================================================== -->
+
+<footer>
+
+```
+Sebuah kenangan dari TWINFLAME.
+```
+
+</footer>
+
+<!-- =======================================================
+     FULLSCREEN PHOTO VIEWER
+======================================================== -->
+
+<div class="photo-viewer" id="photoViewer">
+
+```
+<button
+    class="close-viewer"
+    id="closeViewer"
+    aria-label="Tutup">
+    ×
+</button>
+
+<img
+    id="viewerImage"
+    src=""
+    alt="Foto kenangan">
+```
+
+</div>
+
+<script>
 
 
+/* =========================================================
+   GENERAL REVEAL
+========================================================= */
 
-  <!-- ==================================================
-       FOOTER
-  ================================================== -->
-
-  <footer>
-
-    Sebuah kenangan dari TWINFLAME.
-
-  </footer>
+const revealElements =
+    document.querySelectorAll(".reveal");
 
 
-
-  <!-- ==================================================
-       JAVASCRIPT
-  ================================================== -->
-
-  <script>
-
-    /* ==============================================
-       GENERAL REVEAL
-    ============================================== */
-
-    const reveals =
-      document.querySelectorAll(".reveal");
-
-
-    const revealObserver =
-      new IntersectionObserver(
+const revealObserver =
+    new IntersectionObserver(
 
         (entries) => {
 
-          entries.forEach((entry) => {
+            entries.forEach((entry) => {
 
-            if (entry.isIntersecting) {
+                if (entry.isIntersecting) {
 
-              entry.target.classList.add("active");
+                    entry.target.classList.add("active");
 
-            }
+                    revealObserver.unobserve(
+                        entry.target
+                    );
 
-          });
+                }
+
+            });
 
         },
 
         {
-          threshold: 0.12
+            threshold: 0.12
         }
 
-      );
+    );
 
 
-    reveals.forEach((element) => {
+revealElements.forEach((element) => {
 
-      revealObserver.observe(element);
+    revealObserver.observe(element);
 
-    });
-
-
-
-    /* ==============================================
-       RANDOM MEMORY ANIMATION
-    ============================================== */
-
-    const memories =
-      document.querySelectorAll(".memory");
+});
 
 
-    const memoryObserver =
-      new IntersectionObserver(
+
+/* =========================================================
+   RANDOM MEMORY ANIMATION
+========================================================= */
+
+const memories =
+    document.querySelectorAll(".memory");
+
+
+const memoryObserver =
+    new IntersectionObserver(
 
         (entries) => {
 
-          entries.forEach((entry) => {
+            entries.forEach((entry) => {
 
-            if (entry.isIntersecting) {
+                if (entry.isIntersecting) {
 
-              const delay =
-                Math.random() * 500;
+                    const delay =
+                        Math.random() * 500;
 
-              setTimeout(() => {
+                    setTimeout(() => {
 
-                entry.target.classList.add("active");
+                        entry.target.classList.add(
+                            "active"
+                        );
 
-              }, delay);
+                    }, delay);
 
-            }
+                    memoryObserver.unobserve(
+                        entry.target
+                    );
 
-          });
+                }
+
+            });
 
         },
 
         {
-          threshold: 0.08
+            threshold: 0.08
         }
 
-      );
+    );
 
 
-    memories.forEach((memory) => {
+memories.forEach((memory) => {
 
-      memoryObserver.observe(memory);
+    memoryObserver.observe(memory);
+
+});
+
+
+
+/* =========================================================
+   FULLSCREEN PHOTO
+========================================================= */
+
+const viewer =
+    document.getElementById("photoViewer");
+
+const viewerImage =
+    document.getElementById("viewerImage");
+
+const closeViewer =
+    document.getElementById("closeViewer");
+
+
+const clickablePhotos =
+    document.querySelectorAll(".clickable-photo");
+
+
+clickablePhotos.forEach((photo) => {
+
+    photo.addEventListener("click", () => {
+
+        viewerImage.src =
+            photo.src;
+
+        viewer.classList.add("active");
+
+        document.body.style.overflow =
+            "hidden";
 
     });
 
-  </script>
+});
 
+
+function closePhotoViewer() {
+
+    viewer.classList.remove("active");
+
+    document.body.style.overflow =
+        "";
+
+}
+
+
+closeViewer.addEventListener(
+    "click",
+    closePhotoViewer
+);
+
+
+viewer.addEventListener(
+    "click",
+    (event) => {
+
+        if (
+            event.target === viewer
+        ) {
+
+            closePhotoViewer();
+
+        }
+
+    }
+);
+
+
+document.addEventListener(
+    "keydown",
+    (event) => {
+
+        if (
+            event.key === "Escape"
+        ) {
+
+            closePhotoViewer();
+
+        }
+
+    }
+);
+
+</script>
 
 </body>
 </html>

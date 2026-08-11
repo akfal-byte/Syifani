@@ -4,32 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Barakallahu Fii Umrik, Syifani 🤍</title>
+  <title>Pernah Sedekat Itu</title>
 
-  <meta
-    name="description"
-    content="Sebuah pesan kecil untuk Syifani."
-  >
-
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Poppins:wght@300;400;500&display=swap"
     rel="stylesheet"
   >
 
   <style>
 
-    /* =====================================================
-       BASIC
-    ===================================================== */
-
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
 
     html {
@@ -37,592 +27,378 @@
     }
 
     body {
-      font-family: 'Poppins', sans-serif;
-      color: #55464a;
-      background:
-        radial-gradient(
-          circle at 20% 10%,
-          rgba(255, 255, 255, 0.9),
-          transparent 30%
-        ),
-        radial-gradient(
-          circle at 90% 80%,
-          rgba(255, 213, 222, 0.5),
-          transparent 35%
-        ),
-        linear-gradient(
-          135deg,
-          #fff6f7 0%,
-          #fbe7e9 45%,
-          #f8f4f1 100%
-        );
-
+      background: #f7f3f0;
+      color: #554b48;
+      font-family: "Poppins", sans-serif;
       overflow-x: hidden;
     }
 
-    section {
+    /* ================================
+       OPENING
+    ================================= */
+
+    .opening {
       min-height: 100vh;
-      position: relative;
+
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 90px 20px;
-    }
 
-    .content {
-      width: 100%;
-      max-width: 760px;
-      margin: auto;
-    }
-
-
-    /* =====================================================
-       FLOATING HEARTS
-    ===================================================== */
-
-    .hearts {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      overflow: hidden;
-      z-index: 0;
-    }
-
-    .heart-float {
-      position: absolute;
-      bottom: -50px;
-      color: rgba(214, 158, 167, 0.35);
-      font-size: 18px;
-      animation: floatHeart linear infinite;
-    }
-
-    .heart-float:nth-child(1) {
-      left: 8%;
-      animation-duration: 12s;
-      animation-delay: 1s;
-    }
-
-    .heart-float:nth-child(2) {
-      left: 22%;
-      animation-duration: 15s;
-      animation-delay: 5s;
-    }
-
-    .heart-float:nth-child(3) {
-      left: 48%;
-      animation-duration: 13s;
-      animation-delay: 2s;
-    }
-
-    .heart-float:nth-child(4) {
-      left: 72%;
-      animation-duration: 17s;
-      animation-delay: 7s;
-    }
-
-    .heart-float:nth-child(5) {
-      left: 90%;
-      animation-duration: 14s;
-      animation-delay: 4s;
-    }
-
-    @keyframes floatHeart {
-      0% {
-        transform: translateY(0) rotate(0deg);
-        opacity: 0;
-      }
-
-      10% {
-        opacity: 1;
-      }
-
-      80% {
-        opacity: .5;
-      }
-
-      100% {
-        transform: translateY(-110vh) rotate(25deg);
-        opacity: 0;
-      }
-    }
-
-
-    /* =====================================================
-       HERO
-    ===================================================== */
-
-    .hero {
       text-align: center;
-      overflow: hidden;
+
+      padding: 30px;
+
+      background:
+        radial-gradient(
+          circle at center,
+          rgba(255,255,255,.9),
+          transparent 65%
+        );
     }
 
-    .hero-content {
-      position: relative;
-      z-index: 2;
+    .opening-content {
+      max-width: 650px;
+
+      animation: openingIn 1.8s ease;
     }
 
-    .small-title {
-      font-size: 11px;
+    .opening small {
+      display: block;
+
+      font-size: 10px;
       letter-spacing: 5px;
       text-transform: uppercase;
-      color: #b88791;
-      margin-bottom: 25px;
 
-      animation: fadeDown 1.2s ease forwards;
+      color: #a6948d;
+
+      margin-bottom: 28px;
     }
 
-    .hero h1 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(48px, 12vw, 88px);
-      line-height: .95;
-      font-weight: 600;
-      color: #b87986;
+    .opening h1 {
+      font-family: "Cormorant Garamond", serif;
 
-      animation: fadeUp 1.4s ease forwards;
+      font-size: clamp(58px, 14vw, 100px);
+
+      line-height: .88;
+
+      font-weight: 500;
+
+      color: #625855;
     }
 
-    .hero h1 span {
-      display: block;
-      color: #8d6d73;
+    .opening h1 span {
+      color: #a8867e;
     }
 
-    .hero-subtitle {
-      max-width: 600px;
+    .opening p {
+      max-width: 470px;
+
       margin: 35px auto 0;
 
-      font-size: 14px;
+      font-size: 13px;
+
       line-height: 2;
-      color: #8c797c;
 
-      animation: fadeUp 1.6s ease .2s both;
+      color: #8b807c;
     }
 
-    .hero-heart {
-      margin-top: 35px;
-      font-size: 30px;
-      color: #e6a6b2;
-
-      animation:
-        fadeUp 1.5s ease .5s both,
-        heartbeat 2s ease-in-out 2s infinite;
-    }
-
-    .scroll-indicator {
+    .scroll {
       position: absolute;
-      bottom: 35px;
+
+      bottom: 30px;
       left: 50%;
+
       transform: translateX(-50%);
 
       font-size: 10px;
+
       letter-spacing: 3px;
-      text-transform: uppercase;
-      color: #b7a3a6;
+
+      color: #aaa09c;
 
       animation: bounce 2s infinite;
     }
 
 
-    /* =====================================================
-       PHOTO
-    ===================================================== */
+    /* ================================
+       GENERAL SECTION
+    ================================= */
 
-    .photo-section {
-      min-height: auto;
-      padding-top: 20px;
-      padding-bottom: 130px;
+    section.chapter {
+      min-height: 100vh;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      padding: 100px 20px;
     }
 
-    .photo-wrapper {
-      text-align: center;
-    }
+    .content {
+      width: 100%;
+      max-width: 900px;
 
-    .photo-frame {
-      width: min(88vw, 360px);
-      padding: 10px;
       margin: auto;
+    }
 
-      background: rgba(255,255,255,.75);
 
-      border: 1px solid rgba(255,255,255,.9);
+    /* ================================
+       TITLE
+    ================================= */
+
+    .chapter-title {
+      text-align: center;
+
+      margin-bottom: 60px;
+    }
+
+    .chapter-title small {
+      display: block;
+
+      font-size: 10px;
+
+      letter-spacing: 4px;
+
+      text-transform: uppercase;
+
+      color: #ad9189;
+
+      margin-bottom: 15px;
+    }
+
+    .chapter-title h2 {
+      font-family: "Cormorant Garamond", serif;
+
+      font-size: clamp(42px, 9vw, 65px);
+
+      line-height: 1;
+
+      font-weight: 500;
+
+      color: #675d59;
+    }
+
+
+    /* ================================
+       TEXT
+    ================================= */
+
+    .chapter-text {
+      max-width: 560px;
+
+      margin: 0 auto 55px;
+
+      text-align: center;
+
+      font-family: "Cormorant Garamond", serif;
+
+      font-size: clamp(24px, 5vw, 34px);
+
+      line-height: 1.4;
+
+      color: #766964;
+    }
+
+
+    /* ================================
+       PHOTO GRID
+    ================================= */
+
+    .photos {
+      display: grid;
+
+      grid-template-columns: repeat(2, 1fr);
+
+      gap: 14px;
+    }
+
+    .photo {
+      overflow: hidden;
+
+      background: #e9e1dc;
 
       box-shadow:
-        0 25px 70px rgba(145, 104, 112, .18);
-
-      transform: rotate(-1.5deg);
-      transition: transform .5s ease;
+        0 15px 35px rgba(70, 55, 50, .10);
     }
 
-    .photo-frame:hover {
-      transform: rotate(0deg) scale(1.02);
-    }
-
-    .photo-frame img {
+    .photo img {
       width: 100%;
-      height: 460px;
+
+      height: 100%;
+
+      display: block;
 
       object-fit: cover;
 
-      display: block;
-
-      border-radius: 3px;
+      transition:
+        transform .8s ease;
     }
 
-    .photo-caption {
-      margin-top: 30px;
+    .photo:hover img {
+      transform: scale(1.04);
+    }
 
-      font-family: 'Cormorant Garamond', serif;
+    .large {
+      grid-column: span 2;
 
-      font-size: 23px;
-      color: #8f7479;
+      aspect-ratio: 16 / 10;
+    }
+
+    .small {
+      aspect-ratio: 1 / 1;
     }
 
 
-    /* =====================================================
-       MESSAGE
-    ===================================================== */
+    /* ================================
+       SEPARATOR
+    ================================= */
 
-    .message-section {
-      min-height: auto;
-      padding-top: 50px;
-      padding-bottom: 120px;
-    }
+    .separator {
+      min-height: 60vh;
 
-    .message-label {
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
       text-align: center;
 
-      font-size: 11px;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-
-      color: #bd8a93;
-
-      margin-bottom: 35px;
+      padding: 40px 25px;
     }
 
-    .message-card {
-      background: rgba(255,255,255,.68);
+    .separator p {
+      max-width: 700px;
 
-      border: 1px solid rgba(255,255,255,.8);
+      font-family: "Cormorant Garamond", serif;
 
-      border-radius: 25px;
+      font-size: clamp(34px, 7vw, 55px);
 
-      padding: clamp(30px, 7vw, 60px);
+      line-height: 1.25;
 
-      box-shadow:
-        0 25px 80px rgba(139, 105, 111, .10);
-
-      backdrop-filter: blur(10px);
-    }
-
-    .message-card h2 {
-      font-family: 'Cormorant Garamond', serif;
-
-      font-size: clamp(42px, 9vw, 62px);
-
-      line-height: 1;
-
-      font-weight: 600;
-
-      color: #9f717a;
-
-      margin-bottom: 40px;
-    }
-
-    .message-card p {
-      font-size: 14px;
-
-      line-height: 2;
-
-      color: #6f6063;
-
-      margin-bottom: 25px;
-    }
-
-    .message-card strong {
-      color: #9d6f78;
-      font-weight: 600;
+      color: #766965;
     }
 
 
-    /* =====================================================
-       EMPHASIS
-    ===================================================== */
+    /* ================================
+       FINAL
+    ================================= */
 
-    .emphasis {
-      min-height: 80vh;
+    .final {
+      min-height: 100vh;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
       text-align: center;
+
+      padding: 50px 25px;
 
       background:
         linear-gradient(
-          180deg,
-          transparent,
-          rgba(255,255,255,.25),
-          transparent
+          to bottom,
+          #f7f3f0,
+          #eee5e0
         );
     }
 
-    .emphasis-text {
-      font-family: 'Cormorant Garamond', serif;
-
-      font-size: clamp(42px, 10vw, 72px);
-
-      line-height: 1.05;
-
-      color: #8e6870;
-
-      max-width: 700px;
-
-      margin: auto;
+    .final-content {
+      max-width: 650px;
     }
 
-    .emphasis-sub {
-      margin: 35px auto 0;
-
-      max-width: 500px;
-
-      font-size: 14px;
-
-      line-height: 2;
-
-      color: #958285;
-    }
-
-
-    /* =====================================================
-       WAITING
-    ===================================================== */
-
-    .waiting {
-      text-align: center;
-      min-height: 75vh;
-    }
-
-    .waiting small {
+    .final small {
       display: block;
 
-      font-size: 11px;
+      font-size: 10px;
 
       letter-spacing: 4px;
 
       text-transform: uppercase;
 
-      color: #bd8a93;
-
-      margin-bottom: 30px;
-    }
-
-    .waiting h2 {
-      font-family: 'Cormorant Garamond', serif;
-
-      font-size: clamp(46px, 11vw, 78px);
-
-      line-height: 1;
-
-      color: #8d6970;
-
-      font-weight: 500;
-    }
-
-    .waiting p {
-      margin-top: 35px;
-
-      font-size: 14px;
-
-      line-height: 2;
-
-      color: #958285;
-
-      max-width: 520px;
-
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-
-    /* =====================================================
-       LOVE
-    ===================================================== */
-
-    .love {
-      min-height: 60vh;
-
-      text-align: center;
-    }
-
-    .love-text {
-      font-family: 'Cormorant Garamond', serif;
-
-      font-size: clamp(48px, 12vw, 85px);
-
-      color: #c17f8b;
-
-      font-weight: 600;
-    }
-
-    .love-heart {
-      font-size: 28px;
-
-      margin-top: 20px;
-
-      color: #e3a1ad;
-    }
-
-
-    /* =====================================================
-       DOA
-    ===================================================== */
-
-    .dua {
-      min-height: auto;
-    }
-
-    .dua-card {
-      text-align: center;
-
-      background: rgba(238, 248, 247, .65);
-
-      border: 1px solid rgba(210, 235, 232, .8);
-
-      border-radius: 25px;
-
-      padding: clamp(35px, 7vw, 60px);
-
-      box-shadow:
-        0 20px 60px rgba(95, 129, 126, .08);
-    }
-
-    .dua-card h2 {
-      font-family: 'Cormorant Garamond', serif;
-
-      font-size: 48px;
-
-      font-weight: 600;
-
-      color: #66817f;
-
-      margin-bottom: 35px;
-    }
-
-    .dua-card p {
-      font-size: 14px;
-
-      line-height: 2;
-
-      color: #657675;
-
-      margin-bottom: 25px;
-    }
-
-
-    /* =====================================================
-       AYAT
-    ===================================================== */
-
-    .ayat {
-      text-align: center;
-      min-height: 75vh;
-    }
-
-    .ayat-label {
-      font-size: 11px;
-
-      letter-spacing: 4px;
-
-      color: #a28a6d;
-
-      margin-bottom: 35px;
-    }
-
-    .ayat-text {
-      font-family: 'Cormorant Garamond', serif;
-
-      font-size: clamp(28px, 7vw, 43px);
-
-      line-height: 1.5;
-
-      color: #756b62;
-
-      max-width: 700px;
-
-      margin: auto;
-    }
-
-    .ayat-source {
-      margin-top: 30px;
-
-      font-size: 13px;
-
-      color: #9a8e84;
-    }
-
-
-    /* =====================================================
-       FINAL
-    ===================================================== */
-
-    .final {
-      text-align: center;
-
-      min-height: 100vh;
-    }
-
-    .final-small {
-      font-size: 11px;
-
-      letter-spacing: 4px;
-
-      text-transform: uppercase;
-
-      color: #b38b91;
+      color: #aa9189;
 
       margin-bottom: 30px;
     }
 
     .final h2 {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: "Cormorant Garamond", serif;
 
-      font-size: clamp(48px, 12vw, 90px);
+      font-size: clamp(48px, 11vw, 82px);
 
       line-height: .95;
 
-      color: #ae7781;
+      font-weight: 500;
 
-      font-weight: 600;
+      color: #665b57;
     }
 
     .final p {
       margin-top: 35px;
 
-      color: #8c7b7f;
+      font-size: 13px;
 
-      font-size: 14px;
+      line-height: 2.1;
+
+      color: #817672;
     }
 
-    .final-heart {
-      display: block;
+    .hope {
+      margin-top: 50px;
 
+      font-family: "Cormorant Garamond", serif;
+
+      font-size: clamp(27px, 5vw, 36px);
+
+      line-height: 1.4;
+
+      color: #92766f;
+    }
+
+    .heart {
       margin-top: 45px;
 
-      font-size: 30px;
+      font-size: 25px;
 
-      color: #dfa1ac;
+      color: #b9938b;
 
-      animation: heartbeat 2s infinite;
+      animation: heartbeat 2.2s infinite;
     }
 
 
-    /* =====================================================
+    /* ================================
+       FOOTER
+    ================================= */
+
+    footer {
+      padding: 35px 20px 50px;
+
+      text-align: center;
+
+      background: #eee5e0;
+
+      color: #aaa09c;
+
+      font-size: 10px;
+
+      letter-spacing: 2px;
+    }
+
+
+    /* ================================
        REVEAL
-    ===================================================== */
+    ================================= */
 
     .reveal {
       opacity: 0;
 
-      transform: translateY(45px);
+      transform: translateY(35px);
 
       transition:
-        opacity 1.2s ease,
-        transform 1.2s ease;
+        opacity 1s ease,
+        transform 1s ease;
     }
 
     .reveal.active {
@@ -632,35 +408,38 @@
     }
 
 
-    /* =====================================================
-       ANIMATIONS
-    ===================================================== */
+    /* ================================
+       ANIMATION
+    ================================= */
 
-    @keyframes fadeUp {
+    @keyframes openingIn {
+
       from {
         opacity: 0;
-        transform: translateY(35px);
+        transform: translateY(25px);
       }
 
       to {
         opacity: 1;
         transform: translateY(0);
       }
+
     }
 
-    @keyframes fadeDown {
-      from {
-        opacity: 0;
-        transform: translateY(-25px);
+    @keyframes bounce {
+
+      0%, 100% {
+        transform: translate(-50%, 0);
       }
 
-      to {
-        opacity: 1;
-        transform: translateY(0);
+      50% {
+        transform: translate(-50%, -7px);
       }
+
     }
 
     @keyframes heartbeat {
+
       0%, 100% {
         transform: scale(1);
       }
@@ -676,44 +455,35 @@
       45% {
         transform: scale(1.1);
       }
-    }
-
-    @keyframes bounce {
-
-      0%, 100% {
-        transform: translate(-50%, 0);
-      }
-
-      50% {
-        transform: translate(-50%, -8px);
-      }
 
     }
 
 
-    /* =====================================================
+    /* ================================
        MOBILE
-    ===================================================== */
+    ================================= */
 
     @media (max-width: 600px) {
 
-      section {
-        padding-left: 20px;
-        padding-right: 20px;
+      section.chapter {
+        padding-top: 85px;
+        padding-bottom: 85px;
       }
 
-      .photo-frame img {
-        height: 430px;
+      .photos {
+        gap: 9px;
       }
 
-      .message-card {
-        border-radius: 20px;
+      .large {
+        aspect-ratio: 4 / 3;
       }
 
-      .message-card p,
-      .dua-card p,
-      .waiting p {
-        font-size: 13.5px;
+      .chapter-title {
+        margin-bottom: 45px;
+      }
+
+      .chapter-text {
+        margin-bottom: 40px;
       }
 
     }
@@ -725,133 +495,85 @@
 <body>
 
 
-  <!-- =====================================================
-       FLOATING HEARTS
-  ===================================================== -->
+  <!-- =========================================
+       OPENING
+  ========================================== -->
 
-  <div class="hearts">
+  <section class="opening">
 
-    <div class="heart-float">♡</div>
-    <div class="heart-float">♡</div>
-    <div class="heart-float">♡</div>
-    <div class="heart-float">♡</div>
-    <div class="heart-float">♡</div>
+    <div class="opening-content">
 
-  </div>
-
-
-  <!-- =====================================================
-       HERO
-  ===================================================== -->
-
-  <section class="hero">
-
-    <div class="hero-content">
-
-      <div class="small-title">
-        sebuah pesan kecil
-      </div>
+      <small>
+        untuk sebuah kenangan
+      </small>
 
       <h1>
-        Barakallahu
-        <span>Fii Umrik, Syifani</span>
+        Pernah<br>
+        <span>Sedekat Itu.</span>
       </h1>
 
-      <p class="hero-subtitle">
-        Semoga Allah senantiasa memberkahi umur sayang,
-        memberikan kebahagiaan yang abadi,
-        dan menjadikan setiap langkah sayang
-        penuh rahmat-Nya.
+      <p>
+        Mungkin sekarang kita sudah tidak seperti dulu.
+        Tapi sebelum semuanya berubah,
+        ada banyak hal yang pernah kita jalani bersama.
       </p>
-
-      <div class="hero-heart">
-        ♡
-      </div>
 
     </div>
 
-    <div class="scroll-indicator">
+    <div class="scroll">
       scroll perlahan ↓
     </div>
 
   </section>
 
 
-  <!-- =====================================================
-       PHOTO
-  ===================================================== -->
+  <!-- =========================================
+       GROUP 01
+  ========================================== -->
 
-  <section class="photo-section">
-
-    <div class="content photo-wrapper reveal">
-
-      <div class="photo-frame">
-
-        <img
-          src="syifani.jpg"
-          alt="Foto Syifani"
-        >
-
-      </div>
-
-      <div class="photo-caption">
-        Untuk seseorang yang begitu berarti. 🤍
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- =====================================================
-       MESSAGE 1
-  ===================================================== -->
-
-  <section class="message-section">
+  <section class="chapter">
 
     <div class="content reveal">
 
-      <div class="message-label">
-        Ada sesuatu yang ingin aku sampaikan
-      </div>
+      <div class="chapter-title">
 
-      <div class="message-card">
+        <small>
+          01 — awal
+        </small>
 
         <h2>
-          Maaf ya,<br>
-          sayang.
+          Dari sini semuanya dimulai.
         </h2>
 
-        <p>
-          Aku memang terlambat mengucapkannya.
-          Dan aku tahu, mungkin yang membuatmu kecewa
-          bukan hanya soal ucapan yang terlambat,
-          tapi tentang harapan yang kamu punya terhadapku
-          di hari yang begitu berarti buatmu.
-        </p>
+      </div>
 
-        <p>
-          <strong>Jujur, aku menyesal.</strong>
-        </p>
+      <div class="chapter-text">
 
-        <p>
-          Bukan karena aku tidak peduli.
-          Justru selama ini pikiranku terlalu sibuk
-          memikirkan bagaimana caranya mempertahankan
-          hubungan ini, bagaimana membuatmu tetap nyaman,
-          dan bagaimana supaya kita tetap bisa berjalan bersama.
-        </p>
+        Dulu semuanya terasa sederhana.
+        Ada kamu, ada aku,
+        dan ada banyak hal kecil
+        yang akhirnya menjadi kenangan.
 
-        <p>
-          Tapi ternyata, dalam kesibukanku menjaga
-          hubungan ini, aku justru melewatkan sesuatu
-          yang seharusnya tidak boleh aku lewatkan.
-        </p>
+      </div>
 
-        <p>
-          Dan untuk itu,
-          <strong>aku benar-benar minta maaf.</strong>
-        </p>
+
+      <div class="photos">
+
+        <div class="photo large">
+          <img src="foto1.jpg" alt="Kenangan pertama">
+        </div>
+
+        <div class="photo small">
+          <img src="foto2.jpg" alt="Kenangan">
+        </div>
+
+        <div class="photo small">
+          <img src="foto3.jpg" alt="Kenangan">
+        </div>
+
+        <div class="photo large">
+          <img src="foto4.jpg" alt="Kenangan">
+        </div>
 
       </div>
 
@@ -860,111 +582,16 @@
   </section>
 
 
-  <!-- =====================================================
-       MESSAGE 2
-  ===================================================== -->
+  <!-- =========================================
+       SEPARATOR 01
+  ========================================== -->
 
-  <section class="message-section">
+  <section class="separator">
 
-    <div class="content reveal">
-
-      <div class="message-card">
-
-        <p>
-          Aku tahu aku belum menjadi seseorang
-          yang sempurna buat sayang.
-          Masih banyak hal yang harus aku perbaiki
-          dari diriku sendiri.
-        </p>
-
-        <p>
-          Tapi satu hal yang ingin aku sayang tahu—
-        </p>
-
-        <p>
-          <strong>
-            aku tidak pernah berhenti mengusahakan
-            versi terbaik dari diriku saat ini.
-          </strong>
-        </p>
-
-        <p>
-          Ketika aku sadar bahwa aku telah membuatmu kecewa,
-          aku tidak ingin mencari alasan.
-          Aku hanya ingin mengakui kesalahanku,
-          meminta maaf, dan memahami apa yang sebenarnya
-          sayang butuhkan.
-        </p>
-
-        <p>
-          Aku mungkin tidak bisa mengubah
-          apa yang sudah terjadi.
-          Tapi aku masih bisa belajar
-          dari kesalahan itu.
-        </p>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- =====================================================
-       CLIMAX
-  ===================================================== -->
-
-  <section class="emphasis">
-
-    <div class="content reveal">
-
-      <div class="emphasis-text">
-        Kalau sayang<br>
-        membutuhkan jarak,<br>
-        aku akan menghargainya.
-      </div>
-
-      <div class="emphasis-sub">
-        Bukan karena aku ingin pergi,
-        tapi karena aku ingin menghargai
-        apa yang sayang rasakan.
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- =====================================================
-       WAITING
-  ===================================================== -->
-
-  <section class="waiting">
-
-    <div class="content reveal">
-
-      <small>
-        Dan kalau sayang bertanya
-      </small>
-
-      <h2>
-        apakah aku<br>
-        masih mau menunggu?
-      </h2>
+    <div class="reveal">
 
       <p>
-        Kalau sayang mau,
-        aku akan menunggu.
-
-        <br><br>
-
-        Bukan sebagai bentuk paksaan,
-        bukan juga supaya sayang merasa bersalah.
-
-        <br><br>
-
-        Aku hanya ingin memberikan waktu
-        dan ruang yang sayang butuhkan.
+        Kita juga pernah hampir kehilangan semuanya.
       </p>
 
     </div>
@@ -972,19 +599,224 @@
   </section>
 
 
-  <!-- =====================================================
-       LOVE
-  ===================================================== -->
+  <!-- =========================================
+       GROUP 02
+  ========================================== -->
 
-  <section class="love">
+  <section class="chapter">
 
     <div class="content reveal">
 
-      <div class="love-text">
-        I Love You.
+      <div class="chapter-title">
+
+        <small>
+          02 — pernah hampir selesai
+        </small>
+
+        <h2>
+          Tapi waktu itu,
+          kita masih memilih untuk bertahan.
+        </h2>
+
       </div>
 
-      <div class="love-heart">
+
+      <div class="chapter-text">
+
+        Entah berapa kali kita mencoba
+        memahami satu sama lain.
+        Tapi pada akhirnya,
+        waktu itu kita masih ada.
+
+      </div>
+
+
+      <div class="photos">
+
+        <div class="photo large">
+          <img src="foto5.jpg" alt="Kenangan">
+        </div>
+
+        <div class="photo small">
+          <img src="foto6.jpg" alt="Kenangan">
+        </div>
+
+        <div class="photo small">
+          <img src="foto7.jpg" alt="Kenangan">
+        </div>
+
+        <div class="photo large">
+          <img src="foto8.jpg" alt="Kenangan">
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================================
+       GROUP 03
+  ========================================== -->
+
+  <section class="chapter">
+
+    <div class="content reveal">
+
+      <div class="chapter-title">
+
+        <small>
+          03 — hari yang pernah kita rayakan
+        </small>
+
+        <h2>
+          Tentang hari ulang tahunmu.
+        </h2>
+
+      </div>
+
+
+      <div class="chapter-text">
+
+        Mungkin dulu terasa seperti hari biasa.
+        Tapi sekarang,
+        justru momen seperti ini
+        yang terasa paling jauh.
+
+      </div>
+
+
+      <div class="photos">
+
+        <div class="photo large">
+          <img src="foto9.jpg" alt="Kenangan ulang tahun">
+        </div>
+
+        <div class="photo small">
+          <img src="foto10.jpg" alt="Kenangan ulang tahun">
+        </div>
+
+        <div class="photo small">
+          <img src="foto11.jpg" alt="Kenangan ulang tahun">
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================================
+       GROUP 04
+  ========================================== -->
+
+  <section class="chapter">
+
+    <div class="content reveal">
+
+      <div class="chapter-title">
+
+        <small>
+          04 — hal-hal kecil
+        </small>
+
+        <h2>
+          Dan ternyata,
+          kita punya cukup banyak cerita.
+        </h2>
+
+      </div>
+
+
+      <div class="chapter-text">
+
+        Tidak semuanya istimewa.
+        Tapi semuanya pernah menjadi
+        bagian dari kita.
+
+      </div>
+
+
+      <div class="photos">
+
+        <div class="photo large">
+          <img src="foto12.jpg" alt="Kenangan">
+        </div>
+
+        <div class="photo small">
+          <img src="foto13.jpg" alt="Kenangan">
+        </div>
+
+        <div class="photo small">
+          <img src="foto14.jpg" alt="Kenangan">
+        </div>
+
+        <div class="photo large">
+          <img src="foto15.jpg" alt="Kenangan">
+        </div>
+
+      </div>
+
+
+      <div class="chapter-text" style="margin-top:60px;">
+
+        Sekarang aku baru sadar,
+        ternyata hal-hal kecil seperti ini
+        yang paling sering aku ingat.
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================================
+       FINAL
+  ========================================== -->
+
+  <section class="final">
+
+    <div class="final-content reveal">
+
+      <small>
+        pada akhirnya
+      </small>
+
+      <h2>
+        Kita pernah<br>
+        sedekat itu.
+      </h2>
+
+
+      <p>
+        Aku tidak tahu halaman ini
+        akan berarti apa untuk kita nanti.
+      </p>
+
+
+      <p>
+        Aku cuma ingin menyimpannya.
+        Karena bagaimanapun akhirnya,
+        aku bersyukur pernah punya
+        semua ini bersamamu.
+      </p>
+
+
+      <div class="hope">
+
+        Dan kalau suatu hari nanti
+        kita kembali bertemu sebagai dua orang
+        yang sama-sama ingin mencoba lagi,
+        mungkin kita bisa membuat
+        cerita yang baru.
+
+      </div>
+
+
+      <div class="heart">
         ♡
       </div>
 
@@ -993,178 +825,49 @@
   </section>
 
 
-  <!-- =====================================================
-       DOA
-  ===================================================== -->
-
-  <section class="dua">
-
-    <div class="content reveal">
-
-      <div class="dua-card">
-
-        <h2>
-          Sebuah doa
-        </h2>
-
-        <p>
-          Semoga di usia barumu ini,
-          Allah selalu memberikanmu petunjuk
-          dalam setiap langkahmu.
-        </p>
-
-        <p>
-          Melindungimu dari hal-hal yang tidak baik,
-          memberikanmu ketenangan,
-          dan mempertemukanmu dengan
-          segala sesuatu yang membawa kebaikan
-          dalam hidupmu.
-        </p>
-
-        <p>
-          Semoga cinta yang kita miliki,
-          jika memang Allah mengizinkannya untuk tetap ada,
-          bukan hanya menjadi rasa yang indah,
-          tetapi juga menjadi jalan bagi kita
-          untuk semakin dekat kepada-Nya.
-        </p>
-
-        <p>
-          <strong>
-            Selamat ulang tahun, Syifani.
-          </strong>
-        </p>
-
-        <p>
-          Semoga kamu selalu menjadi pribadi
-          yang lebih baik, lebih bahagia,
-          lebih kuat, dan selalu dikelilingi
-          oleh hal-hal baik.
-        </p>
-
-      </div>
-
-    </div>
-
-  </section>
+  <footer>
+    sebuah kenangan yang pernah kita punya.
+  </footer>
 
 
-  <!-- =====================================================
-       AYAT
-  ===================================================== -->
-
-  <section class="ayat">
-
-    <div class="content reveal">
-
-      <div class="ayat-label">
-        Q.S. AL-MULK : 2
-      </div>
-
-      <div class="ayat-text">
-        “Dan Dia-lah yang menciptakan hidup dan mati,
-        untuk menguji siapa di antara kamu
-        yang lebih baik amalnya.”
-      </div>
-
-      <div class="ayat-source">
-        — Q.S. Al-Mulk: 2
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- =====================================================
-       FINAL
-  ===================================================== -->
-
-  <section class="final">
-
-    <div class="content reveal">
-
-      <div class="final-small">
-        untukmu, selalu
-      </div>
-
-      <h2>
-        Barakallahu<br>
-        Fii Umrik,<br>
-        Syifani.
-      </h2>
-
-      <p>
-        Semoga setiap detik dalam hidupmu
-        senantiasa penuh dengan keberkahan
-        dan kebahagiaan. 💫
-      </p>
-
-      <div class="final-heart">
-        🤍
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- =====================================================
+  <!-- =========================================
        JAVASCRIPT
-  ===================================================== -->
+  ========================================== -->
 
   <script>
 
-    /* -----------------------------------------
-       SCROLL REVEAL
-    ----------------------------------------- */
-
-    const revealElements =
-      document.querySelectorAll('.reveal');
+    const elements =
+      document.querySelectorAll(".reveal");
 
     const observer =
       new IntersectionObserver(
+
         (entries) => {
 
           entries.forEach((entry) => {
 
             if (entry.isIntersecting) {
 
-              entry.target.classList.add('active');
+              entry.target.classList.add("active");
 
             }
 
           });
 
         },
+
         {
-          threshold: 0.15
+          threshold: 0.12
         }
+
       );
 
 
-    revealElements.forEach((element) => {
+    elements.forEach((element) => {
 
       observer.observe(element);
 
     });
-
-
-    /* -----------------------------------------
-       RANDOM HEART POSITION
-    ----------------------------------------- */
-
-    document
-      .querySelectorAll('.heart-float')
-      .forEach((heart) => {
-
-        heart.style.left =
-          Math.random() * 100 + '%';
-
-        heart.style.animationDelay =
-          Math.random() * 10 + 's';
-
-      });
 
   </script>
 
